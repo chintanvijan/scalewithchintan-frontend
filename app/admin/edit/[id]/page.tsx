@@ -255,8 +255,11 @@ export default function EditPostPage() {
 
           <div className="space-y-2">
             <Label htmlFor="content" className="text-white">
-              Content (HTML or Markdown)
+              Content (Markdown)
             </Label>
+            <p className="text-xs text-neutral-500">
+              Write your content in Markdown format. Supports headings, lists, code blocks, links, and more.
+            </p>
             <Textarea
               id="content"
               value={formData.content}

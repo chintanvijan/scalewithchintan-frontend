@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { getPostBySlug, getAllPosts } from '@/lib/blog-api';
 import { notFound } from 'next/navigation';
+import MarkdownContent from '@/components/markdown-content';
 
 export const revalidate = 3600;
 
@@ -112,7 +113,13 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
         {post.cover_image && (
           <div className="mb-8 overflow-hidden rounded-lg">
             <img
-              src={"data:image/png;base64," + post.cover_image}
+              src={
+                post.cover_image.startsWith('data:image/') ||
+                post.cover_image.startsWith('http://') ||
+                post.cover_image.startsWith('https://')
+                  ? post.cover_image
+                  : `data:image/png;base64,${post.cover_image}`
+              }
               alt={post.title}
               className="h-auto w-full object-cover"
             />
@@ -159,10 +166,9 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
           </div>
         </div>
 
-        <div
-          className="prose prose-invert prose-emerald max-w-none prose-headings:text-white prose-a:text-emerald-500 prose-strong:text-white prose-code:text-emerald-500"
-          dangerouslySetInnerHTML={{ __html: post.content }}
-        />
+        <div className="markdown-content">
+          <MarkdownContent content={post.content} />
+        </div>
 
         {post.tags && post.tags.length > 0 && (
           <div className="mt-12 border-t border-neutral-800 pt-8">
