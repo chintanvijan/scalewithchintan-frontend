@@ -13,18 +13,22 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: 'GPTBot',
         allow: '/',
+        disallow: ['/api/', '/admin/'],
       },
       {
         userAgent: 'ChatGPT-User',
         allow: '/',
+        disallow: ['/api/', '/admin/'],
       },
       {
         userAgent: 'anthropic-ai',
         allow: '/',
+        disallow: ['/api/', '/admin/'],
       },
       {
         userAgent: 'Claude-Web',
         allow: '/',
+        disallow: ['/api/', '/admin/'],
       },
     ],
     sitemap: `${baseUrl}/sitemap.xml`,
