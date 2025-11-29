@@ -18,7 +18,7 @@ export default function Footer() {
     content: [
       { href: '/blog', label: 'All Posts' },
       { href: '/categories', label: 'Categories' },
-      { href: '/tags', label: 'Tags' },
+      // { href: '/tags', label: 'Tags' },
     ],
     resources: [
       { href: '/about', label: 'About' },
