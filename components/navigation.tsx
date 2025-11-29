@@ -22,6 +22,7 @@ export default function Navigation() {
   const navLinks = [
     { href: '/', label: 'Home' },
     { href: '/blog', label: 'Blog' },
+    { href: '/news', label: 'News' },
     { href: '/categories', label: 'Categories' },
     { href: '/about', label: 'About' },
   ];
