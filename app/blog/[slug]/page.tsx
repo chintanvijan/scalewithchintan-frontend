@@ -90,7 +90,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
   };
 
   return (
-    <div className="min-h-screen bg-neutral-950">
+    <div className="flex min-h-screen flex-col bg-neutral-950">
       <Navigation />
 
       <script
@@ -98,7 +98,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <article className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
+      <article className="flex-grow mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
         <Button
           asChild
           variant="ghost"

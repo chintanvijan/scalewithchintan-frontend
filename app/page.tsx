@@ -42,10 +42,10 @@ export default async function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-neutral-950">
+    <div className="flex min-h-screen flex-col bg-neutral-950">
       <Navigation />
 
-      <main>
+      <main className="flex-grow">
         <section className="relative overflow-hidden border-b border-neutral-800 bg-gradient-to-b from-neutral-900 to-neutral-950 px-4 py-20 sm:px-6 lg:px-8 lg:py-32">
           <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
 

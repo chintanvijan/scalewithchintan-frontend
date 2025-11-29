@@ -60,11 +60,18 @@ export default function BlogPage() {
     }
   };
 
-  const filteredPosts = posts.filter((post) => {
-    if (selectedCategory && post.category?.slug !== selectedCategory) return false;
-    if (selectedTag && !post.tags?.some((tag) => tag.slug === selectedTag)) return false;
-    return true;
-  });
+  const filteredPosts = posts
+    .filter((post) => {
+      if (selectedCategory && post.category?.slug !== selectedCategory) return false;
+      if (selectedTag && !post.tags?.some((tag) => tag.slug === selectedTag)) return false;
+      return true;
+    })
+    .sort((a, b) => {
+      // Ensure latest blogs are on top by sorting by published_at descending
+      const dateA = new Date(a.published_at).getTime();
+      const dateB = new Date(b.published_at).getTime();
+      return dateB - dateA;
+    });
 
   const handleCategoryClick = (slug: string) => {
     setSelectedCategory(slug === selectedCategory ? null : slug);
@@ -77,10 +84,10 @@ export default function BlogPage() {
   };
 
   return (
-    <div className="min-h-screen bg-neutral-950">
+    <div className="flex min-h-screen flex-col bg-neutral-950">
       <Navigation />
 
-      <main className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <main className="flex-grow mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="mb-12 text-center">
           <h1 className="mb-4 text-4xl font-bold text-white sm:text-5xl">
             Technical Articles

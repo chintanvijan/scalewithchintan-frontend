@@ -22,9 +22,9 @@ export default async function CategoryPage({ params }: { params: { slug: string 
 
   if (!category) {
     return (
-      <div className="min-h-screen bg-neutral-950">
+      <div className="flex min-h-screen flex-col bg-neutral-950">
         <Navigation />
-        <div className="mx-auto max-w-4xl px-4 py-20 text-center">
+        <div className="flex-grow mx-auto max-w-4xl px-4 py-20 text-center">
           <h1 className="mb-4 text-3xl font-bold text-white">Category Not Found</h1>
           <Button asChild className="bg-emerald-500 hover:bg-emerald-600">
             <Link href="/categories">
@@ -39,10 +39,10 @@ export default async function CategoryPage({ params }: { params: { slug: string 
   }
 
   return (
-    <div className="min-h-screen bg-neutral-950">
+    <div className="flex min-h-screen flex-col bg-neutral-950">
       <Navigation />
 
-      <main className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <main className="flex-grow mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <Button
           asChild
           variant="ghost"

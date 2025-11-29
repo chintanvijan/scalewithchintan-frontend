@@ -28,10 +28,10 @@ export default async function CategoriesPage() {
   );
 
   return (
-    <div className="min-h-screen bg-neutral-950">
+    <div className="flex min-h-screen flex-col bg-neutral-950">
       <Navigation />
 
-      <main className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <main className="flex-grow mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="mb-12 text-center">
           <h1 className="mb-4 text-4xl font-bold text-white sm:text-5xl">
             Browse by Category

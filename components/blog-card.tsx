@@ -18,7 +18,7 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
 
   return (
     <Card
-      className={`group overflow-hidden border-neutral-800 bg-neutral-900/50 backdrop-blur transition-all hover:border-emerald-500/50 hover:shadow-lg hover:shadow-emerald-500/10 ${
+      className={`group flex h-full flex-col overflow-hidden border-neutral-800 bg-neutral-900/50 backdrop-blur transition-all hover:border-emerald-500/50 hover:shadow-lg hover:shadow-emerald-500/10 ${
         featured ? 'md:col-span-2 md:row-span-2' : ''
       }`}
     >
@@ -33,7 +33,7 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
         </div>
       )}
 
-      <CardHeader>
+      <CardHeader className="flex-shrink-0">
         <div className="mb-3 flex flex-wrap items-center gap-2">
           {post.category && (
             <Badge variant="secondary" className="bg-emerald-500/10 text-emerald-500 hover:bg-emerald-500/20">
@@ -58,7 +58,7 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
         </Link>
       </CardHeader>
 
-      <CardContent>
+      <CardContent className="flex-grow">
         <p className={`text-neutral-400 ${featured ? 'text-base' : 'text-sm'}`}>
           {post.excerpt}
         </p>
@@ -78,7 +78,7 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
         )}
       </CardContent>
 
-      <CardFooter className="flex items-center justify-between border-t border-neutral-800 pt-4">
+      <CardFooter className="mt-auto flex items-center justify-between border-t border-neutral-800 pt-4">
         <div className="flex items-center space-x-4 text-xs text-neutral-500">
           <div className="flex items-center">
             <Calendar className="mr-1 h-3 w-3" />
