@@ -1,6 +1,8 @@
 import { MetadataRoute } from 'next';
 import { getAllPosts, getAllCategories } from '@/lib/blog-api';
 
+export const revalidate = 86400;
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://scalewithchintan.com';
 
